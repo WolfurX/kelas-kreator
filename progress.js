@@ -31,6 +31,27 @@
     }
   }
 
+  var TEMA = "kelas-kreator-tema";
+  var tombol = document.querySelector("[data-tema]");
+  if (tombol) {
+    var root = document.documentElement;
+    var meta = document.querySelector('meta[name="theme-color"]');
+    var gambar = function () {
+      var gelap = root.getAttribute("data-theme") === "dark";
+      tombol.textContent = gelap ? "Terang" : "Gelap";
+      tombol.setAttribute("aria-pressed", gelap ? "true" : "false");
+      tombol.setAttribute("aria-label", gelap ? "Ganti ke mode terang" : "Ganti ke mode gelap");
+      if (meta) meta.content = gelap ? "#131315" : "#fbfbfa";
+    };
+    tombol.addEventListener("click", function () {
+      var gelap = root.getAttribute("data-theme") === "dark";
+      if (gelap) root.removeAttribute("data-theme"); else root.setAttribute("data-theme", "dark");
+      try { localStorage.setItem(TEMA, gelap ? "terang" : "gelap"); } catch (e) {}
+      gambar();
+    });
+    gambar();
+  }
+
   var cta = document.querySelector("[data-lanjut]");
   if (cta && done.length) {
     for (var n = 1; n <= 6; n++) {
