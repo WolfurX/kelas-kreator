@@ -41,7 +41,7 @@
       tombol.textContent = gelap ? "Terang" : "Gelap";
       tombol.setAttribute("aria-pressed", gelap ? "true" : "false");
       tombol.setAttribute("aria-label", gelap ? "Ganti ke mode terang" : "Ganti ke mode gelap");
-      if (meta) meta.content = gelap ? "#131315" : "#fbfbfa";
+      if (meta) meta.content = gelap ? "#0f1a22" : "#f3f8fc";
     };
     tombol.addEventListener("click", function () {
       var gelap = root.getAttribute("data-theme") === "dark";
