@@ -4,6 +4,8 @@ Situs belajar Program Creatifluencer, Pantau360 bersama Ekraf: sembilan modul un
 
 Situs statis tanpa build step saat disajikan; GitHub Pages membaca branch `main` apa adanya.
 
+Spesifikasi produk, keputusan yang sudah diambil, dan rencana tahap berikutnya (akun, progres di server, laporan admin) ada di `PRD.md`. Catatan untuk agen pemrograman di `AGENTS.md`.
+
 - `index.html`: halaman depan (modul, cara belajar, jadwal sesi, penilaian, tentang, FAQ)
 - `kurikulum.html`: daftar modul dan pelajaran
 - `progres.html`: progres belajar per modul, tangkapan layarnya jadi Setoran Jumat
