@@ -353,7 +353,7 @@ footer a:last-child { margin-right: 0; }
 @media (hover: hover) and (pointer: fine) { .bar-h a:hover { text-decoration: underline; text-underline-offset: 0.2em; } }
 .bar-h .persen { color: var(--muted); font-variant-numeric: tabular-nums; }
 .bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
-.bar span { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 2px; transition: width 500ms var(--ease-out); }
+.bar span { display: block; height: 100%; width: 0; background: var(--accent-text); border-radius: 2px; transition: width 500ms var(--ease-out); }
 .bar-list .rinci { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.9rem; }
 .bar-list li.selesai-modul .persen { color: var(--accent-text); }
 .reset { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin: 2.5rem 0 3rem; }

@@ -45,15 +45,22 @@
     var prog = document.querySelector("[data-prog]");
     var tulisProg = function () { if (prog) prog.textContent = rinci(n); };
 
+    // a lesson counts as read once its closing exercise has stayed in view for 1.5 s
     var latihan = artikel.querySelectorAll(".pelajaran[data-pelajaran] .latihan");
     if (latihan.length && "IntersectionObserver" in window) {
+      var timers = {};
+      var tandai = function (id, el) {
+        return function () {
+          delete timers[id];
+          if (!mod(n).p[id]) { mod(n).p[id] = 1; touch(n); tulisProg(); }
+          baca.unobserve(el);
+        };
+      };
       var baca = new IntersectionObserver(function (entries) {
         for (var e = 0; e < entries.length; e++) {
-          if (!entries[e].isIntersecting) continue;
-          var sec = entries[e].target.closest(".pelajaran");
-          var id = sec.getAttribute("data-pelajaran");
-          if (!mod(n).p[id]) { mod(n).p[id] = 1; touch(n); tulisProg(); }
-          baca.unobserve(entries[e].target);
+          var el = entries[e].target, id = el.closest(".pelajaran").getAttribute("data-pelajaran");
+          if (entries[e].isIntersecting) { if (!timers[id]) timers[id] = setTimeout(tandai(id, el), 1500); }
+          else if (timers[id]) { clearTimeout(timers[id]); delete timers[id]; }
         }
       }, { threshold: 0.6 });
       for (var l = 0; l < latihan.length; l++) baca.observe(latihan[l]);

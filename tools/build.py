@@ -185,7 +185,7 @@ def index_page():
 <section id="penilaian" aria-labelledby="h-penilaian">
 <div class="wrap">
 <h2 id="h-penilaian">Penilaian</h2>
-<p class="intro">Sepuluh kriteria. Delapan berbobot dengan total 100 poin, dua hanya dilaporkan karena angkanya dipengaruhi banyak hal di luar kendali peserta. Rubrik rinci dibahas di Kick-Off.</p>
+<p class="intro">Sepuluh kriteria: delapan berbobot dengan total 100 poin, dua dicatat sebagai laporan tanpa bobot. Rubrik rinci dibahas di Kick-Off.</p>
 <div class="gulir">
 <table class="tabel">
 <thead><tr><th scope="col">Kriteria</th><th scope="col">Yang dilihat</th><th scope="col" class="num">Bobot</th></tr></thead>
@@ -211,7 +211,7 @@ def index_page():
 </div>
 <div>
 <h3>Ekraf</h3>
-<p>Ekraf, Kementerian Ekonomi Kreatif, adalah mitra program: membuka Kick-Off dan Graduation secara resmi dan menjadi tuan rumah Kick-Off di Gedung Ekraf, Cawang. Setelah program, peserta bergabung ke komunitas alumni untuk pendampingan lanjutan dan peluang kolaborasi.</p>
+<p>Ekraf, Kementerian Ekonomi Kreatif, adalah mitra program: membuka Kick-Off dan Graduation secara resmi dan menjadi tuan rumah Kick-Off di Gedung Ekraf, Cawang. Di Graduation, komunitas alumni diluncurkan sebagai tempat peserta tetap terhubung setelah program.</p>
 </div>
 </div>
 </div>

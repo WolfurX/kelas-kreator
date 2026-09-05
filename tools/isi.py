@@ -6,11 +6,11 @@ NAMA = "Kelas Kreator"
 PROGRAM = "Program Creatifluencer, Pantau360 bersama Ekraf"
 
 JADWAL = [
-    ("2026-09-19", "Sab, 19 Sep 2026", "Kick-Off", "Tatap muka, 08.00 sampai 14.00. Gedung Ekraf, Cawang, Jakarta."),
+    ("2026-09-19", "Sab, 19 Sep 2026", "Kick-Off", "Tatap muka, 08.00 sampai 14.00. Gedung Ekraf (Gedung Film Pesona Indonesia), Jl. Letjen M.T. Haryono Kav. 47-48, Cikoko, Pancoran, Jakarta Selatan."),
     ("2026-09-26", "Sab, 26 Sep 2026", "Live Review 1", "Zoom, 60 menit. Rekap modul, review setoran terpilih, tanya jawab."),
-    ("2026-10-03", "Sab, 3 Okt 2026", "Community Meet-Up", "Tatap muka, 08.00 sampai 14.00. Agreya Coffee Menteng, Jakarta Pusat."),
+    ("2026-10-03", "Sab, 3 Okt 2026", "Community Meet-Up", "Tatap muka, 08.00 sampai 14.00. Agreya Coffee Menteng, Jl. Taman Sunda Kelapa, Menteng, Jakarta Pusat."),
     ("2026-10-10", "Sab, 10 Okt 2026", "Live Review 2", "Zoom, 60 menit. Rekap modul, review setoran terpilih, tanya jawab."),
-    ("2026-10-17", "Sab, 17 Okt 2026", "Graduation", "Tatap muka, 08.00 sampai 14.00. Agreya Coffee Menteng, Jakarta Pusat."),
+    ("2026-10-17", "Sab, 17 Okt 2026", "Graduation", "Tatap muka, 08.00 sampai 14.00. Agreya Coffee Menteng, Jl. Taman Sunda Kelapa, Menteng, Jakarta Pusat."),
 ]
 
 # (kriteria, yang dilihat, bobot, frekuensi)
@@ -34,6 +34,8 @@ FAQ = [
      "Ya, untuk peserta yang menyelesaikan sembilan modul sebelum tenggat dan memenuhi kriteria penilaian. Sertifikat diserahkan di sesi Graduation, 17 Oktober 2026."),
     ("Apakah progres saya tersimpan?",
      "Progres tercatat otomatis di browser yang kamu pakai, tanpa akun dan tanpa server. Ganti perangkat atau hapus data browser, catatannya ikut hilang. Karena itu kirim tangkapan layar halaman Progres setiap Jumat."),
+    ("Kenapa progres saya hilang?",
+     "Kemungkinan besar kamu membukanya di browser bawaan WhatsApp, yang menyimpan datanya terpisah. Buka tautan di Chrome atau Safari dan pakai browser yang sama setiap kali."),
     ("Apakah kuisnya dinilai?",
      "Kuis di sini untuk mengecek pemahamanmu sendiri dan bisa diulang kapan saja. Penilaian program dilakukan mentor lewat setoran mingguan, dengan bobot seperti di bagian Penilaian."),
     ("Alat apa yang dibutuhkan?",
@@ -67,13 +69,13 @@ MODUL = [
              "Buka halaman Progres, isi namamu, dan pastikan Modul 1 sudah tercatat. Lalu perkenalkan diri di grupmu: nama, akun, dan niche yang sedang kamu kerjakan."),
             ("Cara kamu dinilai",
              """<p>Ada sepuluh kriteria, delapan di antaranya berbobot dan dua hanya dilaporkan. Tabel lengkapnya ada di halaman depan. Bobot terbesar, 25 poin, ada di penerapan: seberapa baik isi modul muncul di konten yang benar-benar kamu unggah. Keterlibatan dan pengerjaan tugas masing-masing 15 poin.</p>
-<p>Artinya menyelesaikan modul saja tidak cukup. Yang dinilai adalah konten yang berubah karena modul itu. Performa angka (views, jangkauan, simpan, bagikan) dicatat sebagai laporan, bukan bobot, karena angka dipengaruhi banyak hal di luar kendalimu.</p>
+<p>Artinya menyelesaikan modul saja tidak cukup. Yang dinilai adalah konten yang berubah karena modul itu. Performa angka (views, jangkauan, simpan, bagikan) dicatat sebagai laporan tanpa bobot.</p>
 <p>Di akhir program ada asesmen yang dibandingkan dengan asesmen awal. Sertifikat untuk yang menyelesaikan semua modul sebelum tenggat dan memenuhi kriteria; penghargaan untuk yang terbaik diumumkan di Meet-Up dan Graduation.</p>""",
              "Baca tabel Penilaian di halaman depan dan pilih satu kriteria yang paling lemah di dirimu sekarang. Tulis kenapa."),
             ("Belajar sambil membuat",
-             """<p>Kreator yang berkembang bukan yang paling berbakat, tetapi yang punya lingkaran umpan balik: membuat, mengukur, diberi masukan, memperbaiki. Program ini menyediakan tiga bagian terakhir. Bagian pertama tetap tanggung jawabmu: selama lima minggu, terus unggah.</p>
+             """<p>Kreator berkembang lewat lingkaran umpan balik: membuat, mengukur, diberi masukan, memperbaiki. Program ini menyediakan tiga bagian terakhir. Bagian pertama tetap tanggung jawabmu: selama program berjalan, terus unggah.</p>
 <p>Supaya perubahan bisa dilihat, catat titik awalmu sekarang, sebelum modul berikutnya mengubah apa pun: jumlah pengikut, rata-rata penayangan tiga puluh hari terakhir, dan berapa kali kamu mengunggah dalam sebulan terakhir. Angka ini yang akan dibandingkan di akhir program.</p>
-<p>Ritme yang realistis mengalahkan niat besar. Dua kali seminggu, dua puluh menit, cukup untuk satu modul per minggu. Kalau minggu ini berat, bilang di grup lebih awal. Admin lebih mudah membantu sebelum kamu tertinggal daripada sesudahnya.</p>""",
+<p>Dua kali seminggu, dua puluh menit, sudah cukup untuk mengikuti target mingguan yang diumumkan admin. Kalau minggu ini berat, bilang di grup lebih awal. Admin lebih mudah membantu sebelum kamu tertinggal daripada sesudahnya.</p>""",
              "Catat titik awalmu: pengikut, rata-rata penayangan 30 hari terakhir, jumlah unggahan sebulan terakhir. Simpan tangkapan layarnya."),
         ],
         kuis=[
@@ -88,7 +90,7 @@ MODUL = [
              1, "Penerapan di konten berbobot 25 poin. Performa angka hanya dilaporkan, tidak dibobot."),
             ("Kalau tertinggal dua modul, langkah yang disarankan",
              ["Diam dulu sampai berhasil mengejar", "Bilang ke admin atau grup dan susun rencana kejar yang realistis", "Berhenti dari program", "Mengerjakan kuis saja tanpa membaca modul"],
-             1, "Admin justru membantu menyusun ritme kejar yang ringan sebelum sesi berikutnya. Yang menyulitkan adalah diam."),
+             1, "Admin justru membantu menyusun ritme kejar yang ringan sebelum sesi berikutnya."),
         ],
         tugas=[
             ("Refleksi",
@@ -122,7 +124,7 @@ MODUL = [
              "Ambil dua puluh unggahan terakhirmu dan kelompokkan ke pilar. Unggahan yang tidak masuk mana pun beri tanda. Kalau lebih dari lima, ulangi pemilihan pilar."),
             ("Cara berpikir kreator",
              """<p>Akun yang bertahan diperlakukan seperti usaha kecil: ada penonton yang dilayani, ada tawaran yang jelas, dan ada bukti bahwa tawarannya bekerja. Kreator yang memperlakukan akunnya sebagai lotre menunggu satu video viral, lalu bingung ketika viral itu tidak membawa apa-apa.</p>
-<p>Dua kebiasaan yang membedakan: mengambil keputusan dari data yang sudah ada di akun sendiri, bukan dari perasaan setelah satu video sepi, dan menjaga ritme yang bisa dipertahankan di minggu tersibuk. Konsistensi mengalahkan intensitas.</p>
+<p>Dua kebiasaan yang membedakan: mengambil keputusan dari data yang sudah ada di akun sendiri, dan menjaga ritme yang bisa dipertahankan di minggu tersibuk.</p>
 <p>Yang ketiga soal batas. Tentukan sejak awal apa yang tidak akan kamu lakukan demi angka: topik yang kamu tolak, merek yang kamu tolak, cara mengejar penonton yang tidak sesuai denganmu. Batas ini yang menjaga kepercayaan penonton ketika akunmu membesar.</p>""",
              "Tulis tiga hal yang tidak akan kamu lakukan di akunmu apa pun angkanya. Simpan bersama kalimat penonton idealmu."),
         ],
@@ -159,15 +161,15 @@ MODUL = [
              "Minta dua orang yang belum mengenal akunmu melihat profilmu selama satu detik, lalu tanya akun ini tentang apa. Catat jawaban mereka apa adanya."),
             ("Nama, bio, dan foto sebagai satu paket",
              """<p>Nama tampilan, bio, dan foto profil dibaca dalam satu tarikan napas, jadi susun sebagai satu kalimat. Nama menyebut siapa dan apa (&quot;Dina, masak cepat&quot;), bio menyebut untuk siapa dan mengapa (&quot;Resep 15 menit untuk yang pulang kerja lelah&quot;), foto menunjukkan wajah atau hal yang kamu kerjakan, cukup terang untuk terbaca di ukuran kecil.</p>
-<p>Hindari bio yang berisi daftar semua hal yang pernah kamu lakukan. Bio bukan daftar riwayat hidup, tetapi janji.</p>""",
+<p>Hindari bio yang berisi daftar semua hal yang pernah kamu lakukan. Bio adalah janji.</p>""",
              "Tulis ulang bio dalam maksimal dua belas kata dengan pola: [apa] untuk [siapa]. Pasang selama seminggu dan bandingkan rasio pengunjung profil ke pengikut baru."),
             ("Elemen visual yang berulang",
-             """<p>Penonton mengenali akun dari pola, bukan dari nama. Tentukan sedikit hal dan ulangi terus: dua warna untuk teks di layar, satu jenis huruf, sudut kamera yang sama, cara membuat sampul yang sama. Kalau sembilan unggahan terakhirmu dilihat sebagai satu grid, semuanya harus terasa datang dari satu orang.</p>
-<p>Pola yang paling sering dilanggar adalah sampul. Sampul dengan teks besar, wajah, dan warna yang sama tiap kali membuat profil terbaca sebagai satu rak buku, bukan tumpukan acak. Tren boleh dipakai, tetapi ditekuk ke pola milikmu, bukan sebaliknya.</p>""",
+             """<p>Penonton mengenali akun dari pola yang berulang. Tentukan sedikit hal dan ulangi terus: dua warna untuk teks di layar, satu jenis huruf, sudut kamera yang sama, cara membuat sampul yang sama. Kalau sembilan unggahan terakhirmu dilihat sebagai satu grid, semuanya harus terasa datang dari satu orang.</p>
+<p>Pola yang paling sering dilanggar adalah sampul. Sampul dengan teks besar, wajah, dan warna yang sama tiap kali membuat profil terbaca sebagai satu rak buku, bukan tumpukan acak. Tren boleh dipakai selama ditekuk ke pola milikmu.</p>""",
              "Tangkap layar grid profilmu, sembilan unggahan terakhir. Tandai mana yang tidak terasa satu paket dengan yang lain dan tulis apa yang membuatnya berbeda."),
             ("Gaya bicara dan karakter",
              """<p>Pilih satu cara menyapa dan pakai di mana-mana: video, caption, balasan komentar. &quot;Kamu&quot;, &quot;lo-gue&quot;, atau &quot;Anda&quot; masing-masing memberi rasa yang berbeda, dan campur aduk terasa seperti dua orang yang bergantian memegang akun. Tentukan juga apa yang tidak pernah kamu katakan.</p>
-<p>Karakter bukan topeng. Ambil dua sifat yang memang ada padamu dan yang penonton sudah tangkap dari komentar mereka, lalu perkuat: yang sabar menjelaskan, yang blak-blakan, yang tenang. Ritual kecil membantu, seperti kalimat pembuka yang selalu sama atau cara menutup video yang khas.</p>
+<p>Ambil dua sifat yang memang ada padamu dan yang penonton sudah tangkap dari komentar mereka, lalu perkuat: yang sabar menjelaskan, yang blak-blakan, yang tenang. Ritual kecil membantu, seperti kalimat pembuka yang selalu sama atau cara menutup video yang khas.</p>
 <p>Uji konsistensinya di kolom komentar. Balasanmu dibaca lebih banyak orang daripada yang kamu kira, dan di situ karakter paling sering bocor.</p>""",
              "Tulis satu paragraf \"cara bicara akunku\": sapaan, dua sifat, satu ritual, hal yang tidak pernah dikatakan. Baca sepuluh balasan komentarmu yang terakhir dan cek apakah sesuai."),
         ],
@@ -256,7 +258,7 @@ MODUL = [
 <p>Simpan dan bagikan lebih berharga daripada suka, karena keduanya membawa penonton baru. Perlakukan angka suka sebagai tepuk tangan, bukan sebagai ukuran.</p>""",
              "Tulis ulang caption tiga unggahan terakhirmu dengan satu ajakan saja, disesuaikan dengan tujuan tiap unggahan."),
             ("Naskah yang enak dibaca kamera",
-             """<p>Naskah untuk diucapkan berbeda dari naskah untuk dibaca. Kalimat pendek. Satu gagasan per kalimat. Kata yang kamu pakai sehari-hari, bukan kata yang terdengar pintar. Setelah menulis, baca keras-keras sambil menghitung waktu; kira-kira dua kata per detik, jadi video 45 detik menampung sekitar sembilan puluh kata. Kalau lidahmu tersangkut di satu kalimat, penonton juga akan tersangkut.</p>
+             """<p>Naskah untuk diucapkan berbeda dari naskah untuk dibaca. Kalimat pendek. Satu gagasan per kalimat. Kata yang kamu pakai sehari-hari. Setelah menulis, baca keras-keras sambil menghitung waktu; kira-kira dua kata per detik, jadi video 45 detik menampung sekitar sembilan puluh kata. Kalau lidahmu tersangkut di satu kalimat, penonton juga akan tersangkut.</p>
 <p>Tandai di naskah mana teks yang akan muncul di layar dan di mana kamu berhenti sejenak. Naskah tidak harus kata per kata; cukup hook yang ditulis penuh, poin isi, dan penutup yang ditulis penuh. Bagian tengah boleh diucapkan bebas selama poinnya ada.</p>""",
              "Ambil cerita dari pelajaran sebelumnya, bacakan sambil merekam suara, dan potong sampai muat 45 detik tanpa terdengar terburu-buru."),
         ],
@@ -283,12 +285,12 @@ MODUL = [
              "Rekam satu video dengan pengaturan yang kamu punya sekarang, dengarkan suaranya pakai earphone, dan catat satu hal yang paling mengganggu. Perbaiki hal itu saja."),
             ("Cahaya, suara, dan bingkai",
              """<p>Cahaya: hadapkan wajah ke sumber cahaya, bukan membelakanginya. Jendela di samping atau di depan pada siang hari memberi hasil yang lampu ring murah tidak bisa tiru. Kalau harus merekam malam, satu lampu di depan agak ke samping dan matikan lampu di belakangmu.</p>
-<p>Suara: dekatkan mikrofon. Ponsel yang dipegang setengah meter dari mulut sudah jauh lebih baik daripada ponsel di tripod dua meter. Mikrofon clip-on murah mengalahkan hampir semua hal lain. Rekam di ruangan dengan kain (kasur, gorden, karpet), bukan di kamar mandi, dan matikan kipas.</p>
+<p>Suara: dekatkan mikrofon. Ponsel yang dipegang setengah meter dari mulut sudah jauh lebih baik daripada ponsel di tripod dua meter. Mikrofon clip-on murah adalah pembelian pertama yang paling terasa. Rekam di ruangan dengan kain (kasur, gorden, karpet), bukan di kamar mandi, dan matikan kipas.</p>
 <p>Bingkai: kamera setinggi mata, sedikit ruang di atas kepala, dan pakai orientasi tegak untuk video pendek. Sisakan ruang di bagian bawah dan di sisi kanan, karena di situ tombol dan caption platform menutupi gambar. Ketuk dan tahan layar untuk mengunci fokus dan pencahayaan supaya gambar tidak berkedip saat kamu bergerak.</p>""",
              "Rekam tiga klip sepuluh detik di tempat yang sama: membelakangi jendela, menghadap jendela, dan menghadap jendela dengan mikrofon dekat. Bandingkan."),
             ("Setup yang bisa dipasang lima menit",
              """<p>Alasan orang berhenti mengunggah jarang soal ide; lebih sering soal repotnya menyiapkan. Tentukan satu sudut tetap di rumah yang latarnya rapi, beri tanda posisi tripod dan posisi berdiri dengan selotip, dan simpan pengaturan kamera yang sama setiap kali: 1080p, 30 atau 60 frame per detik, kunci fokus.</p>
-<p>Sebelum merekam, periksa lima hal yang sama: baterai, sisa penyimpanan, mode jangan ganggu, lensa dilap, dan air minum di dekatmu. Daftar kecil ini menghemat lebih banyak sesi rekam daripada alat apa pun.</p>""",
+<p>Sebelum merekam, periksa lima hal yang sama: baterai, sisa penyimpanan, mode jangan ganggu, lensa dilap, dan air minum di dekatmu.</p>""",
              "Siapkan sudut tetapmu, foto hasilnya, dan tulis daftar periksa lima poin di catatan ponsel."),
             ("Rekam sekali, tayang seminggu",
              """<p>Batching berarti memisahkan hari berpikir, hari merekam, dan hari menyunting. Otak yang sedang kreatif dan otak yang sedang teknis tidak bekerja baik di jam yang sama. Satu sesi rekam tiga jam bisa menghasilkan bahan untuk satu minggu kalau naskah sudah siap sebelumnya.</p>
@@ -318,11 +320,11 @@ MODUL = [
 <p>Cara kerjanya sama di ponsel dan di PC: geser ke titik potong, pisahkan klip, hapus bagian yang tidak perlu. Fitur potong otomatis membantu untuk klip panjang, tetapi periksa hasilnya; mesin tidak tahu jeda mana yang disengaja.</p>""",
              "Sunting klip mentah dari Modul 6 hanya dengan pemotongan. Bandingkan durasi sebelum dan sesudah; biasanya berkurang seperempat tanpa kehilangan isi."),
             ("Teks, suara, dan ritme",
-             """<p>Banyak penonton menonton tanpa suara, jadi teks di layar bukan hiasan. Pakai teks otomatis CapCut lalu koreksi ejaannya, letakkan di tengah bawah tetapi di atas area caption platform, satu jenis huruf, maksimal dua warna. Kata kunci hook boleh lebih besar dari yang lain.</p>
+             """<p>Banyak penonton menonton tanpa suara, jadi teks di layar wajib ada. Pakai teks otomatis CapCut lalu koreksi ejaannya, letakkan di tengah bawah tetapi di atas area caption platform, satu jenis huruf, maksimal dua warna. Kata kunci hook boleh lebih besar dari yang lain.</p>
 <p>Suara: musik jauh di bawah suara bicara, cukup terdengar kalau dicari. Efek suara secukupnya, untuk menandai potongan penting saja. Ritme: ubah sesuatu kira-kira setiap lima detik, entah zoom kecil, potongan ke b-roll, atau teks yang muncul. Perubahan ini yang menahan jempol dari gulir tanpa penonton sadar kenapa.</p>""",
              "Tambahkan teks otomatis dan satu perubahan ritme setiap lima detik ke hasil suntingan pelajaran sebelumnya. Tonton tanpa suara; apakah masih bisa diikuti?"),
             ("CapCut di ponsel dan di PC",
-             """<p>Versi ponsel untuk video pendek yang harus tayang hari ini: cepat, dan langsung bisa diunggah. Versi PC untuk video yang lebih panjang atau yang butuh potongan presisi; layar lebar dan papan ketik membuat pemotongan puluhan klip jauh lebih cepat. Fiturnya sama; yang berbeda cuma kenyamanan.</p>
+             """<p>Versi ponsel untuk video pendek yang harus tayang hari ini: cepat, dan langsung bisa diunggah. Versi PC untuk video yang lebih panjang atau yang butuh potongan presisi; layar lebar dan papan ketik membuat pemotongan puluhan klip jauh lebih cepat. Fitur dasarnya sama, beberapa fitur lanjutan berbayar; yang paling terasa berbeda adalah kenyamanannya.</p>
 <p>Saat ekspor, pakai 1080p dengan frame rate yang sama seperti saat merekam. Kalau di ujung proyek muncul klip penutup berlogo CapCut, hapus dulu sebelum ekspor. Simpan proyek dengan nama yang jelas; kamu akan sering membuka ulang untuk memotong versi lain.</p>""",
              "Buka proyek yang sama di ponsel dan di PC (atau di dua ponsel), lakukan potongan yang sama, dan catat mana yang lebih cepat untuk jenis videomu."),
         ],
@@ -346,11 +348,11 @@ MODUL = [
              "Lihat kalender tiga bulan ke depan, tandai minggu-minggu tersibuk, dan tentukan frekuensi yang tetap masuk akal di minggu itu."),
             ("Jam tayang dan format",
              """<p>Jam aktif penonton di data analitik memberi tahu kapan mereka membuka aplikasi, bukan kapan mereka siap menonton kontenmu. Anggap itu titik awal, bukan aturan. Pilih dua jam tayang yang berbeda, misalnya pukul 07.00 dan 19.00, lalu pakai keduanya bergantian selama dua minggu tanpa mengubah hal lain. Selisih yang konsisten adalah jawaban. Selisih yang acak berarti jam tayang bukan masalahmu.</p>
-<p>Satu ide bisa hidup di beberapa format. Video tegak 30 sampai 60 detik untuk TikTok, Reels, dan Shorts. Carousel untuk daftar atau langkah yang perlu dibaca pelan. Video panjang di YouTube untuk yang butuh konteks. Siaran langsung untuk tanya jawab dan menjual. Gunakan fitur bawaan platform; algoritma cenderung menyukai konten yang dibuat dengan alat mereka sendiri.</p>""",
+<p>Satu ide bisa hidup di beberapa format. Video tegak 30 sampai 60 detik untuk TikTok, Reels, dan Shorts. Carousel untuk daftar atau langkah yang perlu dibaca pelan. Video panjang di YouTube untuk yang butuh konteks. Siaran langsung untuk tanya jawab dan menjual. Gunakan fitur bawaan platform seperti teks otomatis dan stiker tanya jawab; penonton sudah terbiasa dengan tampilannya.</p>""",
              "Tentukan dua jam tayang uji dan tanggal evaluasinya. Pilih satu ide dari bank ide dan tulis bagaimana ide itu tampil dalam tiga format berbeda."),
             ("Bank ide yang tidak pernah kosong",
              """<p>Bank ide dari Modul 4 hanya berguna kalau diisi rutin dan dipakai rutin. Tinjau setiap kali menyusun naskah untuk sesi rekam. Sumber yang paling sering dilupakan: video lamamu yang berhasil. Buat ulang dengan sudut baru, contoh baru, atau format lain; penonton barumu belum pernah melihat yang lama.</p>
-<p>Ide yang sudah tiga bulan tidak dipakai boleh dihapus. Bank ide yang penuh dengan ide mati sama tidak bergunanya dengan bank ide kosong.</p>""",
+<p>Ide yang sudah tiga bulan tidak dipakai boleh dihapus.</p>""",
              "Isi bank ide sampai dua puluh entri sebelum sesi rekam berikutnya, dan hapus yang sudah mati."),
             ("Metrik yang sesuai tujuan",
              """<p>Tiap unggahan punya tujuan, dan tiap tujuan punya satu metrik utama. Ingin dikenal orang baru, lihat jangkauan dan jumlah pengikut baru per unggahan. Ingin penonton bertahan, lihat rata-rata durasi tonton dan persentase yang menonton sampai habis. Ingin menjual, lihat klik tautan dan pesan masuk.</p>
@@ -397,16 +399,16 @@ MODUL = [
         pelajaran=[
             ("Apa yang dinilai",
              """<p>Proyek akhir mengukur pemahaman Modul 1 sampai 8 lewat karya, bukan lewat ujian. Ada tiga bagian. Pertama, seri tiga konten di satu pilar yang direncanakan bersama, masing-masing dengan hook, struktur, dan ajakan yang jelas, direkam dan disunting dengan cara dari Modul 6 dan 7. Kedua, dokumen strategi satu halaman: kalimat penonton ideal, pilar, funnel, ritme unggah, dan jalur pemasukan yang dipilih. Ketiga, laporan angka: titik awal dari Modul 1 dibanding angka sekarang, dengan satu paragraf tentang apa yang menurutmu menyebabkan perbedaannya.</p>
-<p>Rubriknya sama dengan rubrik mingguan: penerapan modul, kualitas produksi, orisinalitas, dan kesesuaian dengan identitas yang kamu bangun sejak Modul 2. Seri yang jujur dengan angka kecil dinilai lebih tinggi daripada seri yang mengejar tren tetapi lepas dari pilarmu.</p>""",
+<p>Rubriknya sama dengan rubrik mingguan: penerapan modul, kualitas produksi, orisinalitas, dan kesesuaian dengan identitas yang kamu bangun sejak Modul 2. Yang dinilai adalah penerapan, bukan besarnya angka; seri yang lepas dari pilarmu demi tren justru kehilangan poin kesesuaian.</p>""",
              "Pilih pilar dan tiga ide dari bank ide untuk seri proyek akhirmu. Tulis dalam satu kalimat apa yang menghubungkan ketiganya."),
             ("Menyusun portofolio",
-             """<p>Portofolio adalah proses lima minggu ini yang dirapikan. Susunannya sederhana: profil sebelum dan sesudah, kalimat penonton ideal dan pilar, media kit, tiga konten seri dengan angkanya, eksperimen yang kamu jalankan dan hasilnya, lalu refleksi singkat. Satu dokumen PDF atau satu tautan yang bisa dibuka tanpa login.</p>
-<p>Tunjukkan angka apa adanya. Merek dan mentor lebih percaya pada kreator yang bisa menjelaskan kenapa satu video sepi daripada pada kreator yang hanya menampilkan video terbaiknya. Sertakan juga apa yang tidak berhasil dan apa yang kamu ubah karenanya.</p>""",
+             """<p>Portofolio adalah proses selama program ini yang dirapikan. Susunannya sederhana: profil sebelum dan sesudah, kalimat penonton ideal dan pilar, media kit, tiga konten seri dengan angkanya, eksperimen yang kamu jalankan dan hasilnya, lalu refleksi singkat. Satu dokumen PDF atau satu tautan yang bisa dibuka tanpa login.</p>
+<p>Tunjukkan angka apa adanya, dan sertakan apa yang tidak berhasil serta apa yang kamu ubah karenanya. Itu yang membuat portofolio dipercaya.</p>""",
              "Buat kerangka portofoliomu sekarang, dengan bagian yang masih kosong ditandai. Isi bertahap sampai tenggat."),
             ("Bersiap untuk showcase",
-             """<p>Di Graduation, karya terpilih ditampilkan di depan peserta lain, mentor, dan praktisi industri, lalu diberi umpan balik langsung. Siapkan presentasi tiga menit dengan urutan: siapa penontonmu dan apa yang kamu janjikan, apa yang berubah selama program (tunjukkan angkanya), dan apa yang akan kamu kerjakan setelah program selesai.</p>
-<p>Latih dengan pengatur waktu, di depan grup kecilmu dulu. Tiga menit habis lebih cepat dari yang dikira, dan bagian yang paling sering dipotong justru bagian angka. Bawa tangkapan layar, bukan cerita dari ingatan.</p>""",
-             "Rekam presentasi tiga menitmu di ponsel, tonton, dan potong satu bagian yang tidak menjawab tiga pertanyaan di atas."),
+             """<p>Di Graduation, karya terpilih ditampilkan di depan peserta lain, mentor, dan praktisi industri, lalu diberi umpan balik langsung. Siapkan presentasi singkat (durasinya diumumkan admin) dengan urutan: siapa penontonmu dan apa yang kamu janjikan, apa yang berubah selama program (tunjukkan angkanya), dan apa yang akan kamu kerjakan setelah program selesai.</p>
+<p>Latih dengan pengatur waktu, di depan grup kecilmu dulu. Waktu habis lebih cepat dari yang dikira, dan bagian yang paling sering dipotong justru bagian angka. Bawa tangkapan layar angkanya.</p>""",
+             "Rekam presentasimu di ponsel, tonton, dan potong satu bagian yang tidak menjawab tiga pertanyaan di atas."),
         ],
         kuis=None,
         tugas=[
