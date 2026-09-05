@@ -12,7 +12,7 @@ Read `PRD.md` first. It holds the program context, what is built, what is decide
 ## Checks before pushing
 
 ```
-grep -c '—\|–' *.html modul/*.html          # every count must be 0
+grep -cP '\x{2014}|\x{2013}' *.html modul/*.html          # every count must be 0
 python3 - <<'EOF'                            # well-formed HTML, links, anchors
 import glob, os
 from html.parser import HTMLParser

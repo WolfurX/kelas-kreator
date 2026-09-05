@@ -62,7 +62,7 @@ Progress today lives only in the browser: `localStorage["kelas-kreator-progres"]
 - Hairlines and plain labels instead of coloured callout boxes, badges, cards with shadows, or emoji headings. Progress bars are 4px tracks. Tables have horizontal rules only.
 - Motion only on transform and opacity, under 300 ms, ease-out, reduced-motion respected. Hover styles gated by `(hover: hover) and (pointer: fine)`.
 - Copy is Indonesian, "kamu" register, plain and direct. No em dashes or en dashes anywhere, including code comments that ship. No invented statistics, testimonials, instructors, prizes, or contact details. Claims about the program come from the deck; anything else is written as guidance, not as a rule.
-- Pre-flight before every push: zero dashes (`grep -c '—\|–' *.html modul/*.html`), well-formed HTML, no dead links or anchors, hero subtitle at most 20 words, button contrast at least 4.5:1, no horizontal overflow at 390px. Screenshot at 390 and 1280 in both themes with headless Chromium and look at them:
+- Pre-flight before every push: zero dashes (`grep -cP '\x{2014}|\x{2013}' *.html modul/*.html`), well-formed HTML, no dead links or anchors, hero subtitle at most 20 words, button contrast at least 4.5:1, no horizontal overflow at 390px. Screenshot at 390 and 1280 in both themes with headless Chromium and look at them:
   `brave --headless=new --disable-gpu --hide-scrollbars --window-size=390,7000 --virtual-time-budget=6000 --screenshot=out.png file:///path/index.html`
 
 ### 3.4 Known open items from the 2026-09-05 review
