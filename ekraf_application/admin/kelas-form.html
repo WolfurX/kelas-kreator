@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Form kelas, Admin Kelas Kreator</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3f8fc">
+<script>try{if(localStorage.getItem("kelas-kreator-tema")==="gelap"){document.documentElement.setAttribute("data-theme","dark");document.querySelector('meta[name="theme-color"]').content="#0f1a22"}}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-forms.css">
+</head>
+<body class="admin-body">
+<div class="admin-overlay" aria-hidden="true"></div>
+<div class="admin-shell">
+<aside class="admin-sidebar">
+<a class="admin-brand" href="index.html">Kelas Kreator<span>Panel admin</span></a>
+<ul class="admin-nav">
+<li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h6v8h-6z"/><path d="M14 4h6v5h-6z"/><path d="M14 11h6v9h-6z"/><path d="M4 14h6v6h-6z"/></svg>Ringkasan</a></li>
+<li><a href="kelas.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10 -5l10 5l-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6 -1 6 -3v-5"/></svg>Kelas</a></li>
+<li><a href="modul.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6l-8 4v8l8 4l8 -4v-8z"/></svg>Modul</a></li>
+<li><a href="peserta.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>Peserta</a></li>
+</ul>
+<div class="admin-sidebar-foot"><a href="../index.html">← Kembali ke situs peserta</a></div>
+</aside>
+<div class="admin-main">
+<header class="admin-header">
+<button type="button" class="admin-menu-toggle" data-admin-menu aria-label="Buka menu">☰</button>
+<h1>Edit kelas</h1>
+<div class="admin-header-actions">
+<a class="ui-btn ui-btn-outline ui-btn-sm" href="kelas.html">Kembali</a>
+<button type="button" class="ui-btn ui-btn-outline ui-btn-sm" data-tema aria-pressed="false">Tema</button>
+</div>
+</header>
+<main class="admin-content">
+<p class="page-intro">Edit kelas Creatifluencer 2026. Satu kelas berisi banyak modul; tiap modul berisi banyak pelajaran. Field maps ke <code>JADWAL</code>, <code>PENILAIAN</code>, <code>FAQ</code> di <code>isi.py</code>.</p>
+
+<form data-tabs>
+<div class="ui-tabs" role="tablist">
+<button type="button" class="ui-tab" role="tab" data-tab="utama" aria-selected="true">Utama</button>
+<button type="button" class="ui-tab" role="tab" data-tab="jadwal" aria-selected="false">Jadwal</button>
+<button type="button" class="ui-tab" role="tab" data-tab="penilaian" aria-selected="false">Penilaian</button>
+<button type="button" class="ui-tab" role="tab" data-tab="faq" aria-selected="false">FAQ</button>
+</div>
+
+<div class="ui-tab-panel" data-panel="utama">
+<div class="ui-card form-section">
+<div class="ui-card-body">
+<div class="form-grid">
+<div class="ui-field"><label class="ui-label" for="nama">Nama kelas</label><input class="ui-input" id="nama" type="text" value="Creatifluencer 2026" data-kelas-nama></div>
+<div class="ui-field"><label class="ui-label" for="slug">Slug</label><input class="ui-input" id="slug" type="text" value="creatifluencer-2026" data-kelas-slug></div>
+<div class="ui-field span-2"><label class="ui-label" for="program">Program (strip hero)</label><input class="ui-input" id="program" type="text" value="Program Creatifluencer, Pantau360 bersama Ekraf"></div>
+<div class="ui-field span-2"><label class="ui-label" for="desk">Deskripsi singkat</label><textarea class="ui-textarea" id="desk" rows="2">Sembilan modul belajar mandiri, komunitas WhatsApp, dan lima sesi bersama sampai Graduation.</textarea></div>
+<div class="ui-field"><label class="ui-label" for="status">Status</label><select class="ui-select" id="status"><option selected>publish</option><option>draft</option><option>archived</option></select></div>
+<div class="ui-field"><label class="ui-label" for="target">Target modul mingguan</label><input class="ui-input" id="target" type="number" min="1" max="9" value="2"></div>
+<div class="ui-field"><label class="ui-label" for="kap">Kapasitas peserta</label><input class="ui-input" id="kap" type="number" value="20"></div>
+<div class="ui-field"><label class="ui-label" for="grup">Jumlah grup</label><input class="ui-input" id="grup" type="number" value="4"></div>
+<div class="ui-field"><label class="ui-label" for="mulai">Tanggal mulai</label><input class="ui-input" id="mulai" type="date" value="2026-09-19"></div>
+<div class="ui-field"><label class="ui-label" for="selesai">Tanggal selesai</label><input class="ui-input" id="selesai" type="date" value="2026-10-17"></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ui-tab-panel" data-panel="jadwal" hidden>
+<div class="ui-card form-section">
+<div class="ui-card-body">
+<div class="nested-head">
+<h2 class="ui-card-title">Jadwal sesi</h2>
+<button type="button" class="ui-btn ui-btn-outline ui-btn-sm" data-add-jadwal>Tambah baris</button>
+</div>
+<div class="ui-table-wrap">
+<table class="ui-table nested-table">
+<thead><tr><th>Tanggal ISO</th><th>Tampil</th><th>Nama sesi</th><th>Keterangan</th><th></th></tr></thead>
+<tbody data-jadwal-body></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ui-tab-panel" data-panel="penilaian" hidden>
+<div class="ui-card form-section">
+<div class="ui-card-body ui-table-wrap">
+<table class="ui-table nested-table">
+<thead><tr><th>Kriteria</th><th>Yang dilihat</th><th>Bobot</th><th>Frekuensi</th></tr></thead>
+<tbody data-penilaian-body></tbody>
+</table>
+<p class="ui-card-desc" style="margin-top:0.75rem">10 kriteria penilaian dari isi.py.</p>
+</div>
+</div>
+</div>
+
+<div class="ui-tab-panel" data-panel="faq" hidden>
+<div data-faq-list></div>
+</div>
+
+<div class="form-actions">
+<button type="button" class="ui-btn ui-btn-default" data-mock-save>Simpan kelas</button>
+<button type="button" class="ui-btn ui-btn-outline" data-mock-build>Simpan &amp; build</button>
+<a class="ui-btn ui-btn-ghost" href="kelas.html">Batal</a>
+</div>
+</form>
+</main>
+</div>
+</div>
+<script src="modul-data.js"></script>
+<script src="admin-modul.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

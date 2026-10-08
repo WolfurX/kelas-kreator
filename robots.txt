@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://wolfurx.github.io/kelas-kreator/sitemap.xml

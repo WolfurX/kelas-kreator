@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Peserta, Admin Kelas Kreator</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3f8fc">
+<script>try{if(localStorage.getItem("kelas-kreator-tema")==="gelap"){document.documentElement.setAttribute("data-theme","dark");document.querySelector('meta[name="theme-color"]').content="#0f1a22"}}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+<div class="admin-overlay" aria-hidden="true"></div>
+<div class="admin-shell">
+<aside class="admin-sidebar">
+<a class="admin-brand" href="index.html">Kelas Kreator<span>Panel admin</span></a>
+<ul class="admin-nav">
+<li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h6v8h-6z"/><path d="M14 4h6v5h-6z"/><path d="M14 11h6v9h-6z"/><path d="M4 14h6v6h-6z"/></svg>Ringkasan</a></li>
+<li><a href="kelas.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10 -5l10 5l-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6 -1 6 -3v-5"/></svg>Kelas</a></li>
+<li><a href="modul.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6l-8 4v8l8 4l8 -4v-8z"/></svg>Modul</a></li>
+<li><a href="peserta.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>Peserta</a></li>
+</ul>
+<div class="admin-sidebar-foot"><a href="../index.html">← Kembali ke situs peserta</a></div>
+</aside>
+<div class="admin-main">
+<header class="admin-header">
+<button type="button" class="admin-menu-toggle" data-admin-menu aria-label="Buka menu">☰</button>
+<h1>Manajemen peserta</h1>
+<div class="admin-header-actions">
+<span class="admin-user">Admin Pantau360</span>
+<button type="button" class="ui-btn ui-btn-outline ui-btn-sm" data-tema aria-pressed="false">Tema</button>
+</div>
+</header>
+<main class="admin-content">
+<div class="ui-toolbar">
+<div class="ui-field"><label class="ui-label" for="cari">Cari</label><input class="ui-input" id="cari" type="search" placeholder="Nama atau username" data-peserta-search></div>
+<div class="ui-field"><label class="ui-label" for="grup">Grup</label><select class="ui-select" id="grup" data-filter-grup><option value="">Semua grup</option><option value="1">Grup 1</option><option value="2">Grup 2</option><option value="3">Grup 3</option><option value="4">Grup 4</option></select></div>
+<button type="button" class="ui-btn ui-btn-default">Tambah peserta</button>
+<button type="button" class="ui-btn ui-btn-outline">Export CSV</button>
+</div>
+<div class="ui-card">
+<div class="ui-card-body ui-table-wrap">
+<table class="ui-table" data-peserta-table>
+<thead><tr><th>Nama</th><th>Username</th><th>Grup</th><th>Modul terakhir</th><th class="num">Progres</th><th>Login terakhir</th><th>Status</th><th></th></tr></thead>
+<tbody>
+<tr data-grup="1" data-clickable><td>Rina Aditya</td><td>rina.a</td><td>1</td><td>Modul 4</td><td class="num">62%</td><td>8 Sep 2026</td><td><span class="ui-badge ui-badge-success">Aktif</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+<tr data-grup="1" data-clickable><td>Budi Santoso</td><td>budi.s</td><td>1</td><td>Modul 3</td><td class="num">48%</td><td>7 Sep 2026</td><td><span class="ui-badge ui-badge-warn">Tertinggal 1</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+<tr data-grup="2" data-clickable><td>Sari Melati</td><td>sari.m</td><td>2</td><td>Modul 5</td><td class="num">71%</td><td>8 Sep 2026</td><td><span class="ui-badge ui-badge-success">Aktif</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+<tr data-grup="2" data-clickable><td>Andi Pratama</td><td>andi.p</td><td>2</td><td>Modul 2</td><td class="num">29%</td><td>5 Sep 2026</td><td><span class="ui-badge ui-badge-warn">Tertinggal 2</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+<tr data-grup="3" data-clickable><td>Dewi Lestari</td><td>dewi.l</td><td>3</td><td>Modul 1</td><td class="num">12%</td><td>Belum pernah</td><td><span class="ui-badge ui-badge-muted">Belum login</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+<tr data-grup="3" data-clickable><td>Fajar Nugroho</td><td>fajar.n</td><td>3</td><td>Modul 4</td><td class="num">55%</td><td>8 Sep 2026</td><td><span class="ui-badge ui-badge-success">Aktif</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+<tr data-grup="4" data-clickable><td>Gita Purnama</td><td>gita.p</td><td>4</td><td>Modul 6</td><td class="num">78%</td><td>9 Sep 2026</td><td><span class="ui-badge ui-badge-success">Aktif</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+<tr data-grup="4" data-clickable><td>Hendra Wijaya</td><td>hendra.w</td><td>4</td><td>Modul 3</td><td class="num">41%</td><td>6 Sep 2026</td><td><span class="ui-badge ui-badge-warn">Tertinggal 1</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+<tr data-grup="1" data-clickable><td>Indah Permata</td><td>indah.p</td><td>1</td><td>Modul 2</td><td class="num">33%</td><td>4 Sep 2026</td><td><span class="ui-badge ui-badge-warn">7 hari sepi</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+<tr data-grup="2" data-clickable><td>Joko Susilo</td><td>joko.s</td><td>2</td><td>Modul 1</td><td class="num">18%</td><td>3 Sep 2026</td><td><span class="ui-badge ui-badge-muted">Nonaktif</span></td><td><button type="button" class="ui-btn ui-btn-ghost ui-btn-sm">Detail</button></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="ui-card-desc" style="margin-top:1rem">Prototype: data mock. Produksi mengganti dengan API progres (Phase 3) atau sync Sheet Phase 2.</p>
+</main>
+</div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

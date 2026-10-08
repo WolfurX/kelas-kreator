@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Registrasi peserta, Kelas Kreator</title>
+<meta name="description" content="Buat akun Kelas Kreator jika kamu lolos seleksi Creatifluencer 2026.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3f8fc">
+<script>try{if(localStorage.getItem("kelas-kreator-tema")==="gelap"){document.documentElement.setAttribute("data-theme","dark");document.querySelector('meta[name="theme-color"]').content="#0f1a22"}}catch(e){}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23131315'/%3E%3Cpath d='M9 7h4v8l7-8h5l-8 9 9 9h-5l-8-8v8H9z' fill='%236fb6e2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#isi">Lewati ke konten</a>
+<header class="nav">
+<div class="wrap">
+<a class="brand" href="index.html">Kelas Kreator</a>
+<nav aria-label="Utama"><ul>
+<li><a href="kurikulum.html">Kurikulum</a></li>
+<li><a href="progres.html">Progres</a></li>
+<li class="nav-auth" data-auth-nav data-auth-rel=""></li>
+<li><button type="button" class="tema" data-tema aria-pressed="false" aria-label="Ganti ke mode gelap" title="Mode gelap"><svg class="ic ic-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg><svg class="ic ic-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"/></svg></button></li>
+</ul></nav>
+</div>
+</header>
+<main id="isi">
+<div class="wrap halaman auth-halaman">
+<h1>Registrasi</h1>
+<p class="intro">Program ini hanya untuk <strong>20 peserta</strong> yang sudah lolos seleksi. Daftarkan akunmu dengan username dan kode undangan dari admin (WhatsApp).</p>
+
+<div class="auth-card">
+<form class="auth-form" data-registrasi novalidate>
+<div class="auth-field">
+<label class="auth-label" for="username">Username</label>
+<input class="auth-input" id="username" name="username" type="text" autocomplete="username" required autocapitalize="none" spellcheck="false" placeholder="contoh: rina.a">
+<p class="auth-hint">Sesuai yang admin kirim. Huruf kecil, tanpa spasi.</p>
+</div>
+<div class="auth-field">
+<label class="auth-label" for="kode">Kode undangan</label>
+<input class="auth-input" id="kode" name="kode" type="text" required autocapitalize="characters" autocomplete="one-time-code" placeholder="CF26-XXXX">
+<p class="auth-hint">Dari pesan admin, bukan password sementara.</p>
+</div>
+<div class="auth-field">
+<label class="auth-label" for="password">Password baru</label>
+<input class="auth-input" id="password" name="password" type="password" autocomplete="new-password" required minlength="8" placeholder="Minimal 8 karakter">
+</div>
+<div class="auth-field">
+<label class="auth-label" for="password2">Ulangi password</label>
+<input class="auth-input" id="password2" name="password2" type="password" autocomplete="new-password" required minlength="8">
+</div>
+<p class="auth-error" data-auth-error hidden role="alert"></p>
+<p class="auth-ok" data-auth-ok hidden role="status"></p>
+<button type="submit" class="btn btn-primary auth-submit">Buat akun</button>
+</form>
+<p class="auth-foot">Sudah punya akun? <a href="masuk.html">Masuk</a></p>
+</div>
+
+<p class="auth-note">Materi modul tetap bisa dibaca tanpa akun. Akun dipakai untuk progres dan kuis (Phase 2 akan sinkron ke server).</p>
+</div>
+</main>
+<footer>
+<div class="wrap">
+<p>Kelas Kreator. Program Creatifluencer, Pantau360 bersama Ekraf, 2026.</p>
+</div>
+</footer>
+<script src="data/peserta-whitelist.js"></script>
+<script src="auth.js"></script>
+<script src="progress.js"></script>
+<script>
+(function () {
+  if (window.kkAuth && kkAuth.currentUser()) {
+    location.replace("progres.html");
+    return;
+  }
+  var form = document.querySelector("[data-registrasi]");
+  var err = document.querySelector("[data-auth-error]");
+  var ok = document.querySelector("[data-auth-ok]");
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    err.hidden = true;
+    ok.hidden = true;
+    var username = form.username.value;
+    var kode = form.kode.value;
+    var p1 = form.password.value;
+    var p2 = form.password2.value;
+    if (p1 !== p2) {
+      err.textContent = "Password tidak sama.";
+      err.hidden = false;
+      return;
+    }
+    kkAuth.register(username, kode, p1).then(function (res) {
+      if (!res.ok) {
+        err.textContent = res.error;
+        err.hidden = false;
+        return;
+      }
+      ok.textContent = "Akun berhasil dibuat. Mengalihkan ke progres…";
+      ok.hidden = false;
+      setTimeout(function () { location.href = "progres.html"; }, 800);
+    });
+  });
+})();
+</script>
+</body>
+</html>

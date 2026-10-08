@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Masuk, Kelas Kreator</title>
+<meta name="description" content="Masuk ke akun Kelas Kreator Creatifluencer 2026.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3f8fc">
+<script>try{if(localStorage.getItem("kelas-kreator-tema")==="gelap"){document.documentElement.setAttribute("data-theme","dark");document.querySelector('meta[name="theme-color"]').content="#0f1a22"}}catch(e){}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23131315'/%3E%3Cpath d='M9 7h4v8l7-8h5l-8 9 9 9h-5l-8-8v8H9z' fill='%236fb6e2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#isi">Lewati ke konten</a>
+<header class="nav">
+<div class="wrap">
+<a class="brand" href="index.html">Kelas Kreator</a>
+<nav aria-label="Utama"><ul>
+<li><a href="kurikulum.html">Kurikulum</a></li>
+<li><a href="progres.html">Progres</a></li>
+<li class="nav-auth" data-auth-nav data-auth-rel=""></li>
+<li><button type="button" class="tema" data-tema aria-pressed="false" aria-label="Ganti ke mode gelap" title="Mode gelap"><svg class="ic ic-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg><svg class="ic ic-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"/></svg></button></li>
+</ul></nav>
+</div>
+</header>
+<main id="isi">
+<div class="wrap halaman auth-halaman">
+<h1>Masuk</h1>
+<p class="intro">Masuk dengan username dan password yang kamu buat saat registrasi.</p>
+
+<div class="auth-card">
+<form class="auth-form" data-masuk novalidate>
+<div class="auth-field">
+<label class="auth-label" for="username">Username</label>
+<input class="auth-input" id="username" name="username" type="text" autocomplete="username" required autocapitalize="none" spellcheck="false">
+</div>
+<div class="auth-field">
+<label class="auth-label" for="password">Password</label>
+<input class="auth-input" id="password" name="password" type="password" autocomplete="current-password" required>
+</div>
+<p class="auth-error" data-auth-error hidden role="alert"></p>
+<button type="submit" class="btn btn-primary auth-submit">Masuk</button>
+</form>
+<p class="auth-foot">Belum punya akun? <a href="registrasi.html">Registrasi peserta terkurasi</a></p>
+</div>
+</div>
+</main>
+<footer>
+<div class="wrap">
+<p>Kelas Kreator. Program Creatifluencer, Pantau360 bersama Ekraf, 2026.</p>
+</div>
+</footer>
+<script src="data/peserta-whitelist.js"></script>
+<script src="auth.js"></script>
+<script src="progress.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var next = params.get("next") || "progres.html";
+  if (window.kkAuth && kkAuth.currentUser()) {
+    location.replace(next);
+    return;
+  }
+  var form = document.querySelector("[data-masuk]");
+  var err = document.querySelector("[data-auth-error]");
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    err.hidden = true;
+    kkAuth.login(form.username.value, form.password.value).then(function (res) {
+      if (!res.ok) {
+        err.textContent = res.error;
+        err.hidden = false;
+        return;
+      }
+      location.href = next;
+    });
+  });
+})();
+</script>
+</body>
+</html>
