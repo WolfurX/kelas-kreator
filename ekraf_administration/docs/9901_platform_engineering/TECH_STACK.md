@@ -26,7 +26,7 @@
 | `ekraf_administration` | BRD / PRD / ADR / arsitektur | Markdown |
 | `ekraf_application` | Situs LMS | HTML, CSS, JS, Python 3 |
 
-Remote asal aplikasi: `git@github.com:WolfurX/kelas-kreator.git`.
+Remote canonical (Pantau): `git@github.com:pantau360/kelas-kreator.git` — setup dan migrasi: [`OPS_AKUN_PANTAU.md`](./OPS_AKUN_PANTAU.md). Legacy: `WolfurX/kelas-kreator`.
 
 ## 3. Frontend
 

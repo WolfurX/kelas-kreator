@@ -6,7 +6,7 @@
 > **Owner bisnis:** Pantau360 (keputusan produk tercatat atas nama Rizki, 2026-09-05)
 > **Path canonical:** `ekraf_administration/docs/0101_lms_kelas_kreator/`
 > **Manajemen admin:** modul [`0201_manajemen_lms`](../0201_manajemen_lms/)
-> **Repo terkait:** `ekraf_application` (kode situs), demo: https://demo-ekraf.pantau.com/ (Cloudflare Pages); mirror historis: https://wolfurx.github.io/kelas-kreator/
+> **Repo terkait:** `ekraf_application` (kode situs). GitHub canonical: akun **`pantau360`** (`OPS_AKUN_PANTAU.md`). Demo: https://demo-ekraf.pantau.com/ (Cloudflare akun Pantau). Mirror historis: https://wolfurx.github.io/kelas-kreator/
 
 Product requirements. Written 2026-09-05 so the Pantau360 team and their coding agents can continue without the original author. Status: paused until Ekraf confirms the program. Everything under "Current state" is live; everything under "Phase 2" is designed and agreed but not built.
 

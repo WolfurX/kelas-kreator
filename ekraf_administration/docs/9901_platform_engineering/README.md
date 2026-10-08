@@ -6,6 +6,12 @@ Batas sistem, stack, dan keputusan teknis LMS Kelas Kreator. Bukan spek fitur (i
 
 | ID | Dokumen | Peran |
 |----|---------|-------|
+| `9901.ops.akun-pantau` | [`OPS_AKUN_PANTAU.md`](./OPS_AKUN_PANTAU.md) | GitHub `pantau360`, Cloudflare Pantau, gh/wrangler |
+
+## Dokumen (arsitektur)
+
+| ID | Dokumen | Peran |
+|----|---------|-------|
 | `9901.architecture` | [`ARCHITECTURE.md`](./ARCHITECTURE.md) | Konteks sistem, container, integrasi |
 | `9901.tech-stack` | [`TECH_STACK.md`](./TECH_STACK.md) | Pilihan teknologi dan sumber kebenaran |
 | `9901.adr.google-sheets` | [`ADR_GOOGLE_SHEETS_BACKEND.md`](./ADR_GOOGLE_SHEETS_BACKEND.md) | Backend Phase 2: Sheets + Apps Script |

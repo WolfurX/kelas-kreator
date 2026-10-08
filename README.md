@@ -9,4 +9,4 @@ Workspace Program Creatifluencer / LMS Kelas Kreator. Dokumentasi dan kode dipis
 
 Baca dulu [`ekraf_administration/README.md`](./ekraf_administration/README.md), lalu PRD di `ekraf_administration/docs/0101_lms_kelas_kreator/`.
 
-Remote asal: `git@github.com:WolfurX/kelas-kreator.git` (situs live: https://wolfurx.github.io/kelas-kreator/).
+**GitHub (gunakan akun Pantau saja):** target `git@github.com:pantau360/kelas-kreator.git` — lihat [`ekraf_administration/docs/9901_platform_engineering/OPS_AKUN_PANTAU.md`](./ekraf_administration/docs/9901_platform_engineering/OPS_AKUN_PANTAU.md). Remote legacy sementara: `WolfurX/kelas-kreator` (GitHub Pages: https://wolfurx.github.io/kelas-kreator/). Demo canonical: https://demo-ekraf.pantau.com/
