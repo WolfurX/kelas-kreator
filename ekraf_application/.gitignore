@@ -1,0 +1,4 @@
+__pycache__/
+.wrangler/
+tools/kunci.csv
+apps-script/.clasprc.json

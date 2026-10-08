@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kelas, Admin Kelas Kreator</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3f8fc">
+<script>try{if(localStorage.getItem("kelas-kreator-tema")==="gelap"){document.documentElement.setAttribute("data-theme","dark");document.querySelector('meta[name="theme-color"]').content="#0f1a22"}}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+<div class="admin-overlay" aria-hidden="true"></div>
+<div class="admin-shell">
+<aside class="admin-sidebar">
+<a class="admin-brand" href="index.html">Kelas Kreator<span>Panel admin</span></a>
+<ul class="admin-nav">
+<li><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h6v8h-6z"/><path d="M14 4h6v5h-6z"/><path d="M14 11h6v9h-6z"/><path d="M4 14h6v6h-6z"/></svg>Ringkasan</a></li>
+<li><a href="kelas.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10 -5l10 5l-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6 -1 6 -3v-5"/></svg>Kelas</a></li>
+<li><a href="modul.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6l-8 4v8l8 4l8 -4v-8z"/><path d="M12 12l8 -4"/><path d="M12 12v8"/><path d="M12 12l-8 -4"/></svg>Modul</a></li>
+<li><a href="peserta.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>Peserta</a></li>
+</ul>
+<div class="admin-sidebar-foot"><a href="../index.html">← Kembali ke situs peserta</a></div>
+</aside>
+<div class="admin-main">
+<header class="admin-header">
+<button type="button" class="admin-menu-toggle" data-admin-menu aria-label="Buka menu">☰</button>
+<h1>Manajemen kelas</h1>
+<div class="admin-header-actions">
+<span class="admin-user">Admin Pantau360</span>
+<button type="button" class="ui-btn ui-btn-outline ui-btn-sm" data-tema aria-pressed="false">Tema</button>
+</div>
+</header>
+<main class="admin-content">
+<p class="page-intro">Satu kelas = satu angkatan program. Field mengikuti PRD Admin: jadwal, penilaian, FAQ, target modul mingguan.</p>
+<div class="ui-toolbar">
+<a class="ui-btn ui-btn-default" href="kelas-form.html?new=1">Tambah kelas</a>
+<button type="button" class="ui-btn ui-btn-outline" data-mock-build>Jalankan build</button>
+</div>
+<div class="ui-card">
+<div class="ui-card-body ui-table-wrap">
+<table class="ui-table">
+<thead><tr><th>Nama</th><th>Slug</th><th>Status</th><th>Periode</th><th class="num">Modul</th><th class="num">Peserta</th><th>Diperbarui</th><th></th></tr></thead>
+<tbody>
+<tr>
+<td><strong>Creatifluencer 2026</strong></td>
+<td><code>creatifluencer-2026</code></td>
+<td><span class="ui-badge ui-badge-success">Publish</span></td>
+<td>19 Sep – 17 Okt 2026</td>
+<td class="num">9</td>
+<td class="num">20</td>
+<td>9 Sep 2026</td>
+<td>
+<a class="ui-btn ui-btn-ghost ui-btn-sm" href="kelas-form.html?id=creatifluencer-2026">Edit</a>
+<a class="ui-btn ui-btn-ghost ui-btn-sm" href="modul.html?kelas=creatifluencer-2026">Modul</a>
+<button type="button" class="ui-btn ui-btn-ghost ui-btn-sm" data-mock-delete="Arsipkan kelas Creatifluencer 2026?">Arsip</button>
+</td>
+</tr>
+<tr>
+<td><strong>Creatifluencer 2027</strong></td>
+<td><code>creatifluencer-2027</code></td>
+<td><span class="ui-badge ui-badge-default">Draft</span></td>
+<td>Belum diisi</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td>8 Sep 2026</td>
+<td>
+<a class="ui-btn ui-btn-ghost ui-btn-sm" href="kelas-form.html?id=creatifluencer-2027">Edit</a>
+<a class="ui-btn ui-btn-ghost ui-btn-sm" href="modul.html?kelas=creatifluencer-2027">Modul</a>
+<button type="button" class="ui-btn ui-btn-destructive ui-btn-sm" data-mock-delete="Hapus kelas draft tanpa modul?">Hapus</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

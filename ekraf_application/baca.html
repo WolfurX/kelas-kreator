@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baca PDF, Kelas Kreator</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3f8fc">
+<script>try{if(localStorage.getItem("kelas-kreator-tema")==="gelap"){document.documentElement.setAttribute("data-theme","dark");document.querySelector('meta[name="theme-color"]').content="#0f1a22"}}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin/admin.css">
+</head>
+<body class="baca-layout">
+<div class="baca-toolbar">
+<div>
+<p class="crumb" style="margin:0 0 0.25rem"><a href="progres.html">Progres</a> · PDF</p>
+<h1 data-judul>Modul 1</h1>
+</div>
+<div class="materi-aksi" style="margin:0">
+<a class="ui-btn ui-btn-outline ui-btn-sm" href="progres.html">Kembali</a>
+<a class="ui-btn ui-btn-default ui-btn-sm" href="#" data-unduh download>Unduh PDF</a>
+</div>
+</div>
+<div class="baca-viewer">
+<iframe title="PDF modul" data-pdf-frame src="about:blank"></iframe>
+<div class="baca-fallback" data-fallback hidden>
+<p>PDF modul ini belum di-upload admin.</p>
+<p><a href="modul/1.html" data-fallback-modul>Baca versi web modul</a> atau coba lagi nanti.</p>
+</div>
+</div>
+<script src="baca.js"></script>
+</body>
+</html>
