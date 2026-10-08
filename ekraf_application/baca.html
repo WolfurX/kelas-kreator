@@ -7,21 +7,18 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#f3f8fc">
 <script>try{if(localStorage.getItem("kelas-kreator-tema")==="gelap"){document.documentElement.setAttribute("data-theme","dark");document.querySelector('meta[name="theme-color"]').content="#0f1a22"}}catch(e){}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="admin/admin.css">
 </head>
 <body class="baca-layout">
 <div class="baca-toolbar">
 <div>
-<p class="crumb" style="margin:0 0 0.25rem"><a href="progres.html">Progres</a> · PDF</p>
+<p class="crumb"><a data-kembali href="progres.html">Modul 1</a> · PDF</p>
 <h1 data-judul>Modul 1</h1>
 </div>
-<div class="materi-aksi" style="margin:0">
-<a class="ui-btn ui-btn-outline ui-btn-sm" href="progres.html">Kembali</a>
-<a class="ui-btn ui-btn-default ui-btn-sm" href="#" data-unduh download>Unduh PDF</a>
+<div class="materi-aksi">
+<a class="btn btn-secondary" href="progres.html" data-kembali>Kembali</a>
+<a class="btn btn-secondary" href="#" data-unduh download>Unduh PDF</a>
 </div>
 </div>
 <div class="baca-viewer">
@@ -30,6 +27,7 @@
 <p>PDF modul ini belum di-upload admin.</p>
 <p><a href="modul/1.html" data-fallback-modul>Baca versi web modul</a> atau coba lagi nanti.</p>
 </div>
+<p class="baca-buka" data-buka hidden><a data-buka-pdf target="_blank" rel="noopener">Buka PDF</a></p>
 </div>
 <script src="baca.js"></script>
 </body>
