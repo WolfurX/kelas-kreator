@@ -2,7 +2,7 @@
 """Emit the site's HTML from tools/isi.py.
 
 Run from anywhere: python3 tools/build.py
-Writes index.html, kurikulum.html, progres.html, modul/N.html, sitemap.xml,
+Writes index.html, kurikulum.html, progres.html, modul/N.html, 404.html, sitemap.xml,
 and refreshes the module manifest inside progress.js. No dependencies.
 """
 import html
@@ -79,9 +79,7 @@ def head(title, desc, path, rel, current=None, extra=""):
 <meta property="og:image:height" content="720">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{FAVICON}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="{rel}assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{rel}style.css">
 {extra}</head>
 <body>
@@ -151,9 +149,10 @@ def index_page():
 <div class="katalog">
 """)
     for mod in MODUL:
+        awal, spasi, akhir = mod["judul"].rpartition(" ")
         out.append(f"""<a class="kartu" href="modul/{mod['n']}.html" data-modul="{mod['n']}">
 <div class="img"><img src="assets/{mod['cover']}" alt="" width="720" height="960" loading="lazy"></div>
-<h3>{esc(mod['judul'])}&#8288;{ic("arrow-right")}</h3>
+<h3>{esc(awal + spasi)}<span class="nw">{esc(akhir)}{ic("arrow-right")}</span></h3>
 <p>{meta_modul(mod)} <span data-status></span></p>
 </a>
 """)
@@ -268,8 +267,7 @@ def progres_page():
     out = [head(f"Progres, {NAMA}", desc, "progres.html", "", current="progres")]
     out.append("""<div class="wrap halaman">
 <h1>Progres</h1>
-<p class="intro">Tercatat otomatis di browser ini saat kamu membaca pelajaran dan menyetor tugas. Setiap Jumat, kirim tangkapan layar halaman ini di thread Setoran Jumat grupmu.</p>
-<p class="auth-callout" data-progres-login hidden>Peserta terkurasi: <a href="registrasi.html">registrasi akun</a> atau <a href="masuk.html">masuk</a> agar namamu terisi otomatis.</p>
+<p class="intro">Setiap Jumat, kirim tangkapan layar halaman ini di thread Setoran Jumat grupmu.</p>
 <div class="ringkas">
 <p class="nama"><label for="nama">Peserta</label><input id="nama" type="text" autocomplete="name" placeholder="Tulis namamu" data-nama></p>
 <p class="total"><span class="angka" data-total>0%</span><span class="ket" data-total-ket>Belum ada modul yang selesai.</span></p>
@@ -286,6 +284,7 @@ def progres_page():
 </li>
 """)
     out.append("""</ol>
+<p class="auth-callout" data-progres-login hidden><a href="registrasi.html">Registrasi akun</a> atau <a href="masuk.html">masuk</a> agar namamu terisi otomatis.</p>
 <p class="reset"><button type="button" class="btn btn-secondary" data-reset>Hapus progres di browser ini</button><span class="note" data-reset-note></span></p>
 </div>
 """)
@@ -297,14 +296,16 @@ def modul_page(mod, prev, nxt):
     n = mod["n"]
     title = f"Modul {n}: {mod['judul']}, {NAMA}"
     out = [head(title, mod["fokus"], f"modul/{n}.html", "../", current="kurikulum")]
+    materi = ""
+    if os.path.exists(os.path.join(ROOT, "assets", "pdf", f"modul-{n}.pdf")):
+        materi = f'<p class="cta modul-materi"><a class="btn btn-secondary" href="../assets/pdf/modul-{n}.pdf" download="modul-{n}.pdf">{ic("download")}Unduh PDF</a><a class="btn btn-secondary" href="../baca.html?modul={n}">Baca PDF</a></p>\n'
     out.append(f"""<div class="banner">
 <img src="../assets/{mod['cover']}" alt="" width="720" height="960" fetchpriority="high">
 <div class="wrap">
 <p class="crumb"><a href="../kurikulum.html">Kurikulum</a> · Modul {n}</p>
 <h1>{esc(mod['judul'])}</h1>
 <p class="lead">{esc(mod['fokus'])}</p>
-<p class="cta modul-materi"><a class="btn btn-secondary" href="../assets/pdf/modul-{n}.pdf" download="modul-{n}.pdf">{ic("download")}Unduh PDF modul</a><a class="btn btn-secondary" href="../baca.html?modul={n}">Baca PDF</a></p>
-</div>
+{materi}</div>
 </div>
 <div class="wrap">
 <article class="artikel" data-modul-halaman="{n}">
@@ -313,7 +314,11 @@ def modul_page(mod, prev, nxt):
 """)
     for i, (judul, _, _) in enumerate(mod["pelajaran"], 1):
         out.append(f'<li><a href="#p{i}">{esc(judul)}</a></li>\n')
-    out.append(f'</ol>\n<p class="rencana-akt">Ditutup dengan: {esc(mod["aktivitas"].lower())}.</p>\n')
+    if mod["kuis"]:
+        out.append('<li class="akt"><a href="#kuis">Kuis</a></li>\n')
+    for jenis, _, _ in mod["tugas"]:
+        out.append(f'<li class="akt"><a href="#{slug(jenis)}">{esc(jenis)}</a></li>\n')
+    out.append("</ol>\n")
     for i, (judul, isi, latihan) in enumerate(mod["pelajaran"], 1):
         out.append(f"""<section class="pelajaran" id="p{i}" data-pelajaran="p{i}" aria-labelledby="h-p{i}">
 <h2 id="h-p{i}"><span class="num">{i}</span>{esc(judul)}</h2>
@@ -328,6 +333,7 @@ def modul_page(mod, prev, nxt):
 <h2 id="h-kuis">Kuis</h2>
 <p class="ket">{kata} pertanyaan, satu jawaban benar tiap soal. Nilainya untuk kamu sendiri dan bisa diulang.</p>
 <form class="kuis" data-kuis="{n}" novalidate>
+<p class="hasil" data-hasil aria-live="polite" hidden></p>
 """)
         for qi, (soal, pilihan, benar, jelas) in enumerate(mod["kuis"], 1):
             out.append(f'<fieldset data-jawab="{benar}"><legend><span class="num">{qi}</span>{esc(soal)}</legend>\n')
@@ -362,6 +368,20 @@ def modul_page(mod, prev, nxt):
         out.append(f'<a class="next" href="../kurikulum.html"><span class="k">Selesai{ic("arrow-right")}</span>Kembali ke kurikulum</a>')
     out.append("</nav>\n</article>\n</div>\n")
     out.append(foot("../"))
+    return "".join(out)
+
+
+def notfound_page():
+    # Pages serves 404.html at any depth, so every link is root-relative.
+    desc = "Halaman yang kamu buka tidak ada di Kelas Kreator."
+    out = [head(f"Halaman tidak ditemukan, {NAMA}", desc, "404.html", "/", extra='<meta name="robots" content="noindex">\n')]
+    out.append("""<div class="wrap halaman">
+<h1>Halaman tidak ditemukan</h1>
+<p class="intro">Tautan ini tidak ada atau sudah dipindahkan.</p>
+<p class="cta"><a class="btn btn-primary" href="/index.html">Ke beranda</a><a class="btn btn-secondary" href="/kurikulum.html">Lihat kurikulum</a></p>
+</div>
+""")
+    out.append(foot("/"))
     return "".join(out)
 
 
@@ -401,6 +421,7 @@ def main():
         prev = MODUL[i - 1] if i else None
         nxt = MODUL[i + 1] if i + 1 < len(MODUL) else None
         write(f"modul/{mod['n']}.html", modul_page(mod, prev, nxt))
+    write("404.html", notfound_page())
     write("sitemap.xml", sitemap())
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITUS}sitemap.xml\n")
     refresh_manifest()

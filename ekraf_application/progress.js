@@ -43,7 +43,17 @@
   if (artikel) {
     var n = artikel.getAttribute("data-modul-halaman");
     var prog = document.querySelector("[data-prog]");
-    var tulisProg = function () { if (prog) prog.textContent = rinci(n); };
+    // lesson map: a check on every read lesson and every finished activity
+    var rencana = artikel.querySelectorAll(".rencana a[href^='#']");
+    var tandaRencana = function () {
+      for (var i = 0; i < rencana.length; i++) {
+        var id = rencana[i].getAttribute("href").slice(1), tanda = rencana[i].querySelector(".ic");
+        var done = /^p\d+$/.test(id) ? mod(n).p[id] : mod(n).a[id];
+        if (done && !tanda) rencana[i].insertAdjacentHTML("beforeend", CHECK);
+        else if (!done && tanda) rencana[i].removeChild(tanda);
+      }
+    };
+    var tulisProg = function () { if (prog) prog.textContent = rinci(n); tandaRencana(); };
 
     // a lesson counts as read once its closing exercise has stayed in view for 1.5 s
     var latihan = artikel.querySelectorAll(".pelajaran[data-pelajaran] .latihan");
@@ -71,8 +81,11 @@
       var sets = form.querySelectorAll("fieldset");
       var tombol = form.querySelector("button");
       var skor = form.querySelector("[data-skor]");
+      var hasil = form.querySelector("[data-hasil]");
       var sudah = mod(n).a.kuis;
-      if (sudah) skor.textContent = "Terakhir: " + sudah.skor + " dari " + sudah.total + " benar.";
+      if (sudah) { hasil.textContent = "Terakhir: " + sudah.skor + " dari " + sudah.total + " benar."; hasil.hidden = false; }
+      var buang = function (sel) { var el = form.querySelectorAll(sel); for (var i = 0; i < el.length; i++) el[i].parentNode.removeChild(el[i]); };
+      var daftar = function (a) { return a.length < 2 ? String(a[0]) : a.slice(0, -1).join(", ") + (a.length > 2 ? "," : "") + " dan " + a[a.length - 1]; };
       var reset = function () {
         form.reset();
         for (var s = 0; s < sets.length; s++) {
@@ -81,45 +94,69 @@
           for (var i = 0; i < labels.length; i++) { labels[i].classList.remove("pilih", "kunci"); labels[i].querySelector("input").disabled = false; }
           sets[s].querySelector(".jelas").hidden = true;
         }
+        buang(".verdict, .belum");
         form.classList.remove("selesai-kuis");
         tombol.textContent = "Periksa jawaban";
         tombol.type = "submit";
         skor.textContent = "";
+        hasil.textContent = "";
+        hasil.hidden = true;
       };
       form.addEventListener("submit", function (ev) {
         ev.preventDefault();
-        var benar = 0, kosong = null;
+        var benar = 0, kosong = null, salah = [];
         for (var s = 0; s < sets.length; s++) {
-          if (!sets[s].querySelector("input:checked")) { kosong = kosong || sets[s]; }
+          if (sets[s].querySelector("input:checked")) continue;
+          kosong = kosong || sets[s];
+          if (!sets[s].querySelector(".belum")) {
+            var belum = document.createElement("p");
+            belum.className = "belum";
+            belum.textContent = "Belum dijawab.";
+            sets[s].insertBefore(belum, sets[s].querySelector("legend").nextSibling);
+          }
         }
         if (kosong) {
           skor.textContent = "Jawab semua soal dulu.";
-          kosong.querySelector("input").focus();
+          kosong.scrollIntoView({ block: "start" });
+          kosong.querySelector("input").focus({ preventScroll: true });
           return;
         }
         for (s = 0; s < sets.length; s++) {
           var jawab = sets[s].getAttribute("data-jawab");
-          var labels = sets[s].querySelectorAll("label");
+          var labels = sets[s].querySelectorAll("label"), kunci = "";
           for (var i = 0; i < labels.length; i++) {
             var input = labels[i].querySelector("input");
             if (input.checked) labels[i].classList.add("pilih");
-            if (input.value === jawab) labels[i].classList.add("kunci");
+            if (input.value === jawab) { labels[i].classList.add("kunci"); kunci = labels[i].querySelector("span").textContent; }
             input.disabled = true;
           }
           var ok = sets[s].querySelector("input:checked").value === jawab;
           sets[s].classList.add(ok ? "benar" : "salah");
-          if (ok) benar++;
-          sets[s].querySelector(".jelas").hidden = false;
+          if (ok) benar++; else salah.push(s + 1);
+          var jelas = sets[s].querySelector(".jelas"), verdict = document.createElement("span");
+          verdict.className = "verdict";
+          verdict.textContent = ok ? "Benar. " : "Salah. Jawaban yang tepat: " + kunci + ". ";
+          jelas.insertBefore(verdict, jelas.firstChild);
+          jelas.hidden = false;
         }
         mod(n).a.kuis = { skor: benar, total: sets.length };
         touch(n);
         form.classList.add("selesai-kuis");
-        skor.textContent = benar + " dari " + sets.length + " benar.";
+        skor.textContent = "";
+        hasil.textContent = benar + " dari " + sets.length + " benar." + (salah.length ? " Soal " + daftar(salah) + " kurang tepat." : "");
+        hasil.hidden = false;
+        hasil.scrollIntoView({ block: "start" });
         tombol.textContent = "Ulangi kuis";
         tombol.type = "button";
         tulisProg();
       });
-      tombol.addEventListener("click", function () { if (tombol.type === "button") reset(); });
+      form.addEventListener("change", function (ev) { var b = ev.target.closest("fieldset").querySelector(".belum"); if (b) b.parentNode.removeChild(b); });
+      tombol.addEventListener("click", function (ev) {
+        if (tombol.type !== "button") return;
+        ev.preventDefault(); // cancels the activation, so the type flip inside reset() cannot submit the empty form
+        reset();
+        form.closest(".aktivitas").scrollIntoView({ block: "start" });
+      });
     }
 
     var setor = artikel.querySelectorAll("[data-setor]");
@@ -146,17 +183,37 @@
     var s = rows[r].querySelector("[data-status]");
     if (s && h.persen === 100) s.innerHTML = CHECK + "Selesai";
     else if (s && h.persen > 0) s.textContent = h.persen + "%";
+    var dibaca = (data[id] || {}).p || {}, pel = rows[r].querySelectorAll("ol a[href*='#p']");
+    for (var j = 0; j < pel.length; j++) {
+      if (!dibaca[pel[j].getAttribute("href").split("#")[1]]) continue;
+      var akhir = pel[j].lastChild.splitText(pel[j].textContent.lastIndexOf(" ") + 1), nw = document.createElement("span");
+      nw.className = "nw"; // the last word travels with the check, so the check never wraps alone
+      pel[j].replaceChild(nw, akhir);
+      nw.appendChild(akhir);
+      nw.insertAdjacentHTML("beforeend", CHECK);
+    }
   }
 
-  // hero button follows the first unfinished module
+  // hero button resumes the unfinished module touched last (else the first unfinished one) at its first open item
   var cta = document.querySelector("[data-lanjut]");
   if (cta) {
-    var ada = false, tujuan = null;
+    var ada = false, tujuan = null, tMaks = 0;
     for (var c = 1; MODUL[c]; c++) {
-      if (hitung(c).persen > 0) ada = true;
-      if (tujuan === null && hitung(c).persen < 100) tujuan = c;
+      var pc = hitung(c).persen;
+      if (pc > 0) ada = true;
+      if (pc === 100) continue;
+      if (tujuan === null) tujuan = c;
+      if (data[c] && data[c].t > tMaks) { tMaks = data[c].t; tujuan = c; }
     }
-    if (ada && tujuan) { cta.textContent = "Lanjutkan ke Modul " + tujuan; cta.setAttribute("href", "modul/" + tujuan + ".html"); }
+    if (ada && tujuan) {
+      var dt = data[tujuan], mt = MODUL[tujuan], sasaran = "";
+      if (hitung(tujuan).persen > 0) { // a module not started yet opens at its top, with the title and lesson map
+        for (var q = 1; !sasaran && q <= mt.p; q++) if (!(dt.p || {})["p" + q]) sasaran = "#p" + q;
+        for (q = 0; !sasaran && q < mt.a.length; q++) if (!(dt.a || {})[mt.a[q]]) sasaran = "#" + mt.a[q];
+      }
+      cta.textContent = "Lanjutkan ke Modul " + tujuan;
+      cta.setAttribute("href", "modul/" + tujuan + ".html" + sasaran);
+    }
     else if (ada) { cta.textContent = "Semua modul selesai"; cta.setAttribute("href", "progres.html"); }
   }
 
@@ -175,7 +232,7 @@
         var bar = bars[b].querySelector("[data-bar]");
         bar.setAttribute("aria-valuenow", h.persen);
         bar.firstElementChild.style.width = h.persen + "%";
-        bars[b].querySelector("[data-rinci]").textContent = rinci(id);
+        bars[b].querySelector("[data-rinci]").textContent = h.persen ? rinci(id) : "";
         bars[b].classList.toggle("selesai-modul", h.persen === 100);
       }
       var total = document.querySelector("[data-total]");
@@ -210,9 +267,22 @@
     var hapus = document.querySelector("[data-reset]");
     var hapusNote = document.querySelector("[data-reset-note]");
     if (hapus) {
-      var siap = false;
+      var siap = false, siapSejak = 0, siapTimer = null;
+      var lepas = function () {
+        if (!siap) return;
+        siap = false;
+        clearTimeout(siapTimer);
+        hapus.textContent = "Hapus progres di browser ini";
+        hapusNote.textContent = "";
+      };
       hapus.addEventListener("click", function () {
-        if (!siap) { siap = true; hapus.textContent = "Ya, hapus semua"; hapusNote.textContent = "Klik sekali lagi untuk menghapus. Tidak bisa dibatalkan."; return; }
+        if (!siap) {
+          siap = true; siapSejak = Date.now(); siapTimer = setTimeout(lepas, 4000);
+          hapus.textContent = "Ya, hapus semua"; hapusNote.textContent = "Tekan sekali lagi untuk menghapus. Tidak bisa dibatalkan.";
+          return;
+        }
+        if (Date.now() - siapSejak < 400) return; // a double tap is not a confirmation
+        clearTimeout(siapTimer);
         data = {};
         try { localStorage.removeItem(KEY); } catch (e) {}
         siap = false;
@@ -222,6 +292,7 @@
         var rows2 = document.querySelectorAll("[data-status]");
         for (var i = 0; i < rows2.length; i++) rows2[i].textContent = "";
       });
+      hapus.addEventListener("blur", lepas);
     }
   }
 
@@ -231,9 +302,9 @@
   if (tombolTema) {
     var root = document.documentElement;
     var meta = document.querySelector('meta[name="theme-color"]');
+    tombolTema.removeAttribute("aria-pressed");
     var gambar = function () {
       var gelap = root.getAttribute("data-theme") === "dark";
-      tombolTema.setAttribute("aria-pressed", gelap ? "true" : "false");
       tombolTema.setAttribute("aria-label", gelap ? "Ganti ke mode terang" : "Ganti ke mode gelap");
       tombolTema.setAttribute("title", gelap ? "Mode terang" : "Mode gelap");
       if (meta) meta.content = gelap ? "#0f1a22" : "#f3f8fc";
@@ -250,7 +321,7 @@
   }
 
   // reveal below-the-fold blocks as they scroll in (JS adds the class, so no-JS shows everything)
-  var targets = document.querySelectorAll("main > section:not(.hero) > .wrap > *, .kartu, .daftar > li, .jadwal > li, .bar-list > li, .pelajaran, .aktivitas, .halaman > *");
+  var targets = document.querySelectorAll("main > section:not(.hero) > .wrap > *, .kartu, .jadwal > li");
   if (targets.length && "IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       for (var e = 0; e < entries.length; e++) {
@@ -259,9 +330,9 @@
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.05 });
     for (var t2 = 0; t2 < targets.length; t2++) {
       var el = targets[t2];
-      if (el.classList.contains("katalog") || el.classList.contains("bar-list")) continue;
+      if (el.classList.contains("katalog")) continue;
       var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
-      if (el.classList.contains("kartu") || el.parentNode.classList.contains("daftar") || el.parentNode.classList.contains("jadwal") || el.parentNode.classList.contains("bar-list")) el.style.setProperty("--i", idx % 6);
+      if (el.classList.contains("kartu") || el.parentNode.classList.contains("jadwal")) el.style.setProperty("--i", idx % 6);
       el.classList.add("reveal");
       io.observe(el);
     }

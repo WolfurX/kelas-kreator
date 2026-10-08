@@ -19,9 +19,7 @@
 <meta property="og:image:height" content="720">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23131315'/%3E%3Cpath d='M9 7h4v8l7-8h5l-8 9 9 9h-5l-8-8v8H9z' fill='%236fb6e2'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="../assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -44,7 +42,6 @@
 <p class="crumb"><a href="../kurikulum.html">Kurikulum</a> · Modul 1</p>
 <h1>Pengantar program</h1>
 <p class="lead">Alur program dari Kick-Off sampai Graduation, cara dinilai, dan dasar mengembangkan diri sebagai kreator konten.</p>
-<p class="cta modul-materi"><a class="btn btn-secondary" href="../assets/pdf/modul-1.pdf" download="modul-1.pdf"><svg class="ic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 11l5 5l5 -5" /><path d="M12 4v12" /></svg>Unduh PDF modul</a><a class="btn btn-secondary" href="../baca.html?modul=1">Baca PDF</a></p>
 </div>
 </div>
 <div class="wrap">
@@ -55,8 +52,9 @@
 <li><a href="#p2">Cara program ini berjalan</a></li>
 <li><a href="#p3">Cara kamu dinilai</a></li>
 <li><a href="#p4">Belajar sambil membuat</a></li>
+<li class="akt"><a href="#kuis">Kuis</a></li>
+<li class="akt"><a href="#refleksi">Refleksi</a></li>
 </ol>
-<p class="rencana-akt">Ditutup dengan: kuis dan refleksi.</p>
 <section class="pelajaran" id="p1" data-pelajaran="p1" aria-labelledby="h-p1">
 <h2 id="h-p1"><span class="num">1</span>Viral itu momen, vital itu posisi</h2>
 <p>Ekonomi kreatif Indonesia dijalankan oleh jutaan kreator yang belajar sendiri. Mereka tumbuh lewat coba-coba: satu video meledak, sepuluh berikutnya sepi, dan tidak jelas kenapa. Penghasilan naik turun, sementara pengetahuan soal branding, hak cipta, dan etika digital tipis. Hasilnya jangkauan tanpa fondasi.</p>
@@ -89,6 +87,7 @@
 <h2 id="h-kuis">Kuis</h2>
 <p class="ket">Empat pertanyaan, satu jawaban benar tiap soal. Nilainya untuk kamu sendiri dan bisa diulang.</p>
 <form class="kuis" data-kuis="1" novalidate>
+<p class="hasil" data-hasil aria-live="polite" hidden></p>
 <fieldset data-jawab="1"><legend><span class="num">1</span>Program ini mengukur keberhasilan kreator dari apa?</legend>
 <label><input type="radio" name="k1-1" value="0"><span>Jumlah penayangan tertinggi yang pernah dicapai</span><svg class="ic ic-benar" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10" /></svg><svg class="ic ic-salah" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></label>
 <label><input type="radio" name="k1-1" value="1"><span>Kemampuan, kualitas karya, dan kontribusi di ekosistem</span><svg class="ic ic-benar" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10" /></svg><svg class="ic ic-salah" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></label>

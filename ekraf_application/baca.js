@@ -31,21 +31,33 @@
   var fallbackLink = document.querySelector("[data-fallback-modul]");
   if (fallbackLink) fallbackLink.href = "modul/" + n + ".html";
 
-  if (iframe) {
-    iframe.src = src;
-    iframe.addEventListener("error", function () {
-      if (fallback) fallback.hidden = false;
-      iframe.hidden = true;
-    });
+  var kembali = document.querySelectorAll("[data-kembali]");
+  for (var i = 0; i < kembali.length; i++) kembali[i].href = "modul/" + n + ".html";
+  var crumb = document.querySelector(".crumb [data-kembali]");
+  if (crumb) crumb.textContent = "Modul " + n;
+
+  var buka = document.querySelector("[data-buka]");
+  var bukaLink = document.querySelector("[data-buka-pdf]");
+  if (bukaLink) bukaLink.href = src;
+
+  // Phones and browsers without a PDF viewer get a link instead of an embed.
+  var sematkan = navigator.pdfViewerEnabled === true && !window.matchMedia("(pointer: coarse)").matches;
+  if (!sematkan && iframe) iframe.hidden = true;
+
+  function tampil(ada) {
+    if (ada && sematkan) {
+      if (iframe) iframe.src = src;
+      return;
+    }
+    if (iframe) iframe.hidden = true;
+    if (ada && buka) buka.hidden = false;
+    if (!ada && fallback) fallback.hidden = false;
   }
 
+  // A host without a 404 page answers a missing file with HTML, so check the type too.
   fetch(src, { method: "HEAD" }).then(function (r) {
-    if (!r.ok && fallback) {
-      fallback.hidden = false;
-      if (iframe) iframe.hidden = true;
-    }
+    tampil(r.ok && /pdf/i.test(r.headers.get("content-type") || ""));
   }).catch(function () {
-    if (fallback) fallback.hidden = false;
-    if (iframe) iframe.hidden = true;
+    tampil(false);
   });
 })();
